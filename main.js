@@ -30,7 +30,7 @@ function startGame(a) {
    }
    if (found) {
       let test = oppValue();
-      displayOppAction(trustedInputs[test - 1]);
+      displayActions(String(a), trustedInputs[test - 1]);
       determineWin(moves[a], test);
       updateScore(playerScore, oppScore);
    } else console.log(`${a} is not trusted input`);
@@ -100,7 +100,10 @@ function oppValue() {
    return d;
 }
 
-function displayOppAction(result) {
-   action = document.getElementById('oppAction');
-   action.className = `fas fa-hand-${result}`;
+function displayActions(player, opp) {
+   playerAction = document.getElementById('playerAction');
+   playerAction.className = `fas fa-hand-${player}`;
+
+   oppAction = document.getElementById('oppAction');
+   oppAction.className = `fas fa-hand-${opp}`;
 }

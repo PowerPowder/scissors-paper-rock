@@ -3,24 +3,35 @@
    <head>
       <meta charset="UTF-8" />
       <title></title>
-      <link rel="stylesheet" />
+      <link rel="stylesheet" href="styles.css" />
    </head>
    <body>
-      <h1>Hello</h1>
-      <div id="choices">
-         <button id="scissors" value="scissors">
-            <i class="fas fa-hand-scissors" id="scissors" value="scissors"></i>
-         </button>
-         <button id="paper" value="paper">
-            <i class="fas fa-hand-paper"></i>
-         </button>
-         <button id="rock" value="rock">
-            <i class="fas fa-hand-rock"></i>
-         </button>
+      <div id="wrapper">
+         <h1 style="text-align:center">Scissors, Paper, Rock</h1>
+         <div id="game-wrapper">
+            <h2 style="text-align: center;">Player</h2>
+            <div></div>
+            <h2 style="text-align: center;">Computer</h2>
+            <div id="player-wrapper">
+               <i id="playerAction" style="text-align: center;"></i>
+               <div id="choices" style="text-align: center;">
+                  <button id="scissors" value="scissors">
+                     <i class="fas fa-hand-scissors"></i>
+                  </button>
+                  <button id="paper" value="paper">
+                     <i class="fas fa-hand-paper"></i>
+                  </button>
+                  <button id="rock" value="rock">
+                     <i class="fas fa-hand-rock"></i>
+                  </button>
+               </div>
+            </div>
+            <h1 id="vs">VS</h1>
+            <i id="oppAction" class=""></i>
+         </div>
+         <h4>Player: <span id="playerScore">0</span></h4>
+         <h4>Computer: <span id="oppScore">0</span></h4>
       </div>
-      <i id="oppAction" class=""></i>
-      <h4>Player: <span id="playerScore"></span></h4>
-      <h4>Computer: <span id="oppScore"></span></h4>
    </body>
 
    <script src="main.js"></script>

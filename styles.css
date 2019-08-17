@@ -1,0 +1,40 @@
+#wrapper {
+   margin: 0 20%;
+}
+
+#game-wrapper {
+   display: grid;
+   grid-template-columns: 2fr 1fr 2fr;
+}
+
+#oppAction {
+   font-size: 20em;
+   text-align: center;
+}
+
+#vs {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+#player-wrapper {
+   display: grid;
+   grid-template-rows: 5fr 1fr;
+}
+
+#playerAction {
+   font-size: 20em;
+}
+
+button i,
+#playerAction {
+   transform: scaleX(-1);
+   -moz-transform: scaleX(-1);
+   -webkit-transform: scaleX(-1);
+   -ms-transform: scaleX(-1);
+}
+
+#choices {
+   padding: 1em;
+}
