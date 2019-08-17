@@ -21,6 +21,7 @@ let oppScore = 0;
 
 function startGame(a) {
    let found = false;
+   console.log(a);
    for (const input of trustedInputs) {
       if (input === a) {
          found = true;
@@ -29,6 +30,7 @@ function startGame(a) {
    }
    if (found) {
       let test = oppValue();
+      displayOppAction(trustedInputs[test - 1]);
       determineWin(moves[a], test);
       updateScore(playerScore, oppScore);
    } else console.log(`${a} is not trusted input`);
@@ -78,6 +80,9 @@ function determineWin(player, opp) {
 function updateScore(player, opp) {
    console.log('Player: ' + player);
    console.log('Computer: ' + opp);
+
+   document.getElementById('playerScore').innerHTML = player;
+   document.getElementById('oppScore').innerHTML = opp;
 }
 
 function oppValue() {
@@ -93,4 +98,9 @@ function oppValue() {
       }
    }
    return d;
+}
+
+function displayOppAction(result) {
+   action = document.getElementById('oppAction');
+   action.className = `fas fa-hand-${result}`;
 }

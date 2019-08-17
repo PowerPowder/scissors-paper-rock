@@ -3,15 +3,26 @@
    <head>
       <meta charset="UTF-8" />
       <title></title>
+      <link rel="stylesheet" />
    </head>
    <body>
       <h1>Hello</h1>
       <div id="choices">
-         <input type="button" id="scissors" value="scissors" />
-         <input type="button" id="paper" value="paper" />
-         <input type="button" id="rock" value="rock" />
+         <button id="scissors" value="scissors">
+            <i class="fas fa-hand-scissors" id="scissors" value="scissors"></i>
+         </button>
+         <button id="paper" value="paper">
+            <i class="fas fa-hand-paper"></i>
+         </button>
+         <button id="rock" value="rock">
+            <i class="fas fa-hand-rock"></i>
+         </button>
       </div>
+      <i id="oppAction" class=""></i>
+      <h4>Player: <span id="playerScore"></span></h4>
+      <h4>Computer: <span id="oppScore"></span></h4>
    </body>
 
    <script src="main.js"></script>
+   <script src="https://kit.fontawesome.com/d73cd5d460.js"></script>
 </html>
