@@ -1,12 +1,38 @@
+document.getElementById('scissors').addEventListener('click', function() {
+   startGame(this.value);
+});
+document.getElementById('paper').addEventListener('click', function() {
+   startGame(this.value);
+});
+document.getElementById('rock').addEventListener('click', function() {
+   startGame(this.value);
+});
+
 const moves = {scissors: 1, paper: 2, rock: 3};
 const outcomes = [
    'scissors beats paper',
    'rock beats scissors',
    'paper beats rock',
 ];
+const trustedInputs = ['scissors', 'paper', 'rock'];
 
 let playerScore = 0;
 let oppScore = 0;
+
+function startGame(a) {
+   let found = false;
+   for (const input of trustedInputs) {
+      if (input === a) {
+         found = true;
+         break;
+      }
+   }
+   if (found) {
+      let test = oppValue();
+      determineWin(moves[a], test);
+      updateScore(playerScore, oppScore);
+   } else console.log(`${a} is not trusted input`);
+}
 
 function determineWin(player, opp) {
    let playerWon = false;
@@ -47,18 +73,11 @@ function determineWin(player, opp) {
       oppScore++;
       console.log('Computer won ' + result);
    }
-
-   updateScore(playerScore, oppScore);
 }
 
 function updateScore(player, opp) {
-   console.log(player);
-   console.log(opp);
-}
-
-function getInput(a) {
-   let test = oppValue();
-   determineWin(moves[a.value], test);
+   console.log('Player: ' + player);
+   console.log('Computer: ' + opp);
 }
 
 function oppValue() {
