@@ -1,3 +1,6 @@
+let playerAction = document.getElementById('playerAction');
+let oppAction = document.getElementById('oppAction');
+
 document.getElementById('scissors').addEventListener('click', function() {
    startGame(this.value);
 });
@@ -101,9 +104,11 @@ function oppValue() {
 }
 
 function displayActions(player, opp) {
-   playerAction = document.getElementById('playerAction');
-   playerAction.className = `flipPlayerAction fas fa-hand-${player}`;
+   playerAction.className = 'flipPlayerAction fas fa-hand-rock player-shaking';
+   oppAction.className = 'fas fa-hand-rock opp-shaking';
 
-   oppAction = document.getElementById('oppAction');
-   oppAction.className = `fas fa-hand-${opp}`;
+   setTimeout(function() {
+      playerAction.className = `flipPlayerAction fas fa-hand-${player}`;
+      oppAction.className = `fas fa-hand-${opp}`;
+   }, 750);
 }

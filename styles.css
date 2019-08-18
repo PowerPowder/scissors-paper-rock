@@ -18,7 +18,8 @@
    justify-content: center;
 }
 
-#player-wrapper {
+#player-wrapper,
+#opp-wrapper {
    display: grid;
    grid-template-rows: 5fr 1fr;
 }
@@ -36,4 +37,35 @@
 
 #choices {
    padding: 1em;
+}
+
+.opp-shaking,
+.player-shaking {
+   position: relative;
+   animation-name: shake;
+   animation-duration: 0.25s;
+   animation-iteration-count: 3;
+}
+
+.opp-shaking {
+   transform: scaleX(-1) rotate(90deg);
+}
+
+.player-shaking {
+   transform: rotate(90deg);
+}
+
+@keyframes shake {
+   0% {
+      left: 0px;
+      top: 0px;
+   }
+   50% {
+      left: 0px;
+      top: 0.1em;
+   }
+   100% {
+      left: 0px;
+      top: 0px;
+   }
 }
