@@ -102,7 +102,7 @@ function oppValue() {
 
 function displayActions(player, opp) {
    playerAction = document.getElementById('playerAction');
-   playerAction.className = `fas fa-hand-${player}`;
+   playerAction.className = `flipPlayerAction fas fa-hand-${player}`;
 
    oppAction = document.getElementById('oppAction');
    oppAction.className = `fas fa-hand-${opp}`;

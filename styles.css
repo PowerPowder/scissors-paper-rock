@@ -27,8 +27,7 @@
    font-size: 20em;
 }
 
-button i,
-#playerAction {
+.flipPlayerAction {
    transform: scaleX(-1);
    -moz-transform: scaleX(-1);
    -webkit-transform: scaleX(-1);
