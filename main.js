@@ -13,35 +13,39 @@ document.getElementById('rock').addEventListener('click', function() {
 
 const moves = {scissors: 1, paper: 2, rock: 3};
 const outcomes = [
-   'scissors beats paper',
-   'rock beats scissors',
-   'paper beats rock',
+   'Scissors beats paper',
+   'Rock beats scissors',
+   'Paper beats rock',
 ];
+const winner = ['Draw', 'Player Won', 'Computer Won'];
 const trustedInputs = ['scissors', 'paper', 'rock'];
 
 let playerScore = 0;
 let oppScore = 0;
 
-function startGame(a) {
+function startGame(action) {
    let found = false;
-   console.log(a);
    for (const input of trustedInputs) {
-      if (input === a) {
+      if (input === action) {
          found = true;
          break;
       }
    }
    if (found) {
       let test = oppValue();
-      displayActions(String(a), trustedInputs[test - 1]);
-      determineWin(moves[a], test);
-      updateScore(playerScore, oppScore);
-   } else console.log(`${a} is not trusted input`);
+      displayActions(String(action), trustedInputs[test - 1]);
+      determineWin(moves[action], test);
+      setTimeout(function() {
+         updateScore(playerScore, oppScore);
+      }, 750);
+   } else console.log(`${action} is not trusted input`);
 }
 
 function determineWin(player, opp) {
    let playerWon = false;
+   let draw = false;
    let result;
+   let winnerResult;
 
    switch (player) {
       case 1:
@@ -71,19 +75,20 @@ function determineWin(player, opp) {
 
    if (playerWon) {
       playerScore++;
-      console.log('Player won ' + result);
+      winnerResult = winner[1];
    } else if (player === opp) {
-      console.log('Draw!');
+      winnerResult = winner[0];
    } else {
       oppScore++;
-      console.log('Computer won ' + result);
+      winnerResult = winner[2];
    }
+
+   if (result === undefined) result = 'No One Won';
+
+   displayResult(winnerResult, result);
 }
 
 function updateScore(player, opp) {
-   console.log('Player: ' + player);
-   console.log('Computer: ' + opp);
-
    document.getElementById('playerScore').innerHTML = player;
    document.getElementById('oppScore').innerHTML = opp;
 }
@@ -91,7 +96,6 @@ function updateScore(player, opp) {
 function oppValue() {
    let b = Math.floor(Math.random() * 3 + 1);
    let d;
-   //console.log(moves[b]);
 
    for (const key of Object.keys(moves)) {
       const val = moves[key];
@@ -110,5 +114,12 @@ function displayActions(player, opp) {
    setTimeout(function() {
       playerAction.className = `flipPlayerAction fas fa-hand-${player}`;
       oppAction.className = `fas fa-hand-${opp}`;
+   }, 750);
+}
+
+function displayResult(playerWon, result) {
+   setTimeout(function() {
+      document.getElementById('finalResult').innerHTML =
+         playerWon + ': ' + result;
    }, 750);
 }
