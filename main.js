@@ -32,9 +32,9 @@ function startGame(action) {
       }
    }
    if (found) {
-      let test = oppValue();
-      displayActions(String(action), trustedInputs[test - 1]);
-      determineWin(moves[action], test);
+      let comVal = oppValue();
+      displayActions(String(action), trustedInputs[comVal - 1]);
+      determineWin(moves[action], comVal);
       setTimeout(function() {
          updateScore(playerScore, oppScore);
       }, 750);
@@ -94,17 +94,17 @@ function updateScore(player, opp) {
 }
 
 function oppValue() {
-   let b = Math.floor(Math.random() * 3 + 1);
-   let d;
+   let moveIndex = Math.floor(Math.random() * 3 + 1);
+   let move;
 
    for (const key of Object.keys(moves)) {
       const val = moves[key];
-      if (moves[key] === b) {
+      if (moves[key] === moveIndex) {
          d = moves[key];
          break;
       }
    }
-   return d;
+   return move;
 }
 
 function displayActions(player, opp) {
