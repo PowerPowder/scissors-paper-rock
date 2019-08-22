@@ -127,7 +127,6 @@ function displayResult(playerWon, result) {
 function displayInputModal() {
    let modal = document.getElementById('myModal');
    let playBtn = document.getElementById('playBtn');
-   let span = document.getElementsByClassName('close')[0];
 
    let scissors = document.getElementById('scissors');
    let paper = document.getElementById('paper');
@@ -135,10 +134,6 @@ function displayInputModal() {
 
    playBtn.onclick = function() {
       modal.style.display = 'grid';
-   };
-
-   span.onclick = function() {
-      modal.style.display = 'none';
    };
 
    window.onclick = function(event) {
