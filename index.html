@@ -4,20 +4,18 @@
       <meta charset="UTF-8" />
       <title></title>
       <link rel="stylesheet" href="styles.css" />
+      <link rel="stylesheet" href="modals.css" />
    </head>
    <body>
       <div id="wrapper">
          <h1 style="text-align:center">Scissors, Paper, Rock</h1>
-         <div id="game-wrapper">
-            <h2 style="text-align: center;">Player</h2>
-            <div></div>
-            <h2 style="text-align: center;">Computer</h2>
-            <div id="player-wrapper">
-               <i
-                  id="playerAction"
-                  style="text-align: center;"
-                  class="fas fa-question"
-               ></i>
+         <button id="playBtn">Play</button>
+         <div id="myModal" class="modal">
+            <div class="modal-content">
+               <div id="close-wrapper">
+                  <div></div>
+                  <span class="close">&times;</span>
+               </div>
                <div id="choices" style="text-align: center;">
                   <button id="scissors" value="scissors">
                      <i class="flipPlayerAction fas fa-hand-scissors"></i>
@@ -29,6 +27,18 @@
                      <i class="flipPlayerAction fas fa-hand-rock"></i>
                   </button>
                </div>
+            </div>
+         </div>
+         <div id="game-wrapper">
+            <h2 style="text-align: center;">Player</h2>
+            <div></div>
+            <h2 style="text-align: center;">Computer</h2>
+            <div id="player-wrapper">
+               <i
+                  id="playerAction"
+                  style="text-align: center;"
+                  class="fas fa-question"
+               ></i>
             </div>
             <h1 id="vs">VS</h1>
             <div id="opp-wrapper">

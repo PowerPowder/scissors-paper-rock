@@ -100,7 +100,7 @@ function oppValue() {
    for (const key of Object.keys(moves)) {
       const val = moves[key];
       if (moves[key] === moveIndex) {
-         d = moves[key];
+         move = moves[key];
          break;
       }
    }
@@ -123,3 +123,41 @@ function displayResult(playerWon, result) {
          playerWon + ': ' + result;
    }, 750);
 }
+
+function displayInputModal() {
+   let modal = document.getElementById('myModal');
+   let playBtn = document.getElementById('playBtn');
+   let span = document.getElementsByClassName('close')[0];
+
+   let scissors = document.getElementById('scissors');
+   let paper = document.getElementById('paper');
+   let rock = document.getElementById('rock');
+
+   playBtn.onclick = function() {
+      modal.style.display = 'grid';
+   };
+
+   span.onclick = function() {
+      modal.style.display = 'none';
+   };
+
+   window.onclick = function(event) {
+      if (event.target == modal) {
+         modal.style.display = 'none';
+      }
+   };
+
+   scissors.onclick = function() {
+      modal.style.display = 'none';
+   };
+
+   paper.onclick = function() {
+      modal.style.display = 'none';
+   };
+
+   rock.onclick = function() {
+      modal.style.display = 'none';
+   };
+}
+
+displayInputModal();
