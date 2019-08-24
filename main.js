@@ -1,3 +1,9 @@
+let modal = document.getElementById('modal-wrapper');
+let playBtn = document.getElementById('playBtn');
+let scissors = document.getElementById('scissors');
+let paper = document.getElementById('paper');
+let rock = document.getElementById('rock');
+
 let playerAction = document.getElementById('playerAction');
 let oppAction = document.getElementById('oppAction');
 
@@ -23,6 +29,12 @@ const trustedInputs = ['scissors', 'paper', 'rock'];
 let playerScore = 0;
 let oppScore = 0;
 
+window.onclick = function(event) {
+   if (event.target == modal) {
+      modal.style.display = 'none';
+   }
+};
+
 function startGame(action) {
    let found = false;
    for (const input of trustedInputs) {
@@ -39,6 +51,10 @@ function startGame(action) {
          updateScore(playerScore, oppScore);
       }, 750);
    } else console.log(`${action} is not trusted input`);
+
+   setTimeout(function() {
+      modal.style.display = 'grid';
+   }, 3250);
 }
 
 function determineWin(player, opp) {
@@ -124,35 +140,18 @@ function displayResult(playerWon, result) {
    }, 750);
 }
 
-function displayInputModal() {
-   let modal = document.getElementById('myModal');
-   let playBtn = document.getElementById('playBtn');
+playBtn.onclick = function() {
+   modal.style.display = 'grid';
+};
 
-   let scissors = document.getElementById('scissors');
-   let paper = document.getElementById('paper');
-   let rock = document.getElementById('rock');
+scissors.onclick = function() {
+   modal.style.display = 'none';
+};
 
-   playBtn.onclick = function() {
-      modal.style.display = 'grid';
-   };
+paper.onclick = function() {
+   modal.style.display = 'none';
+};
 
-   window.onclick = function(event) {
-      if (event.target == modal) {
-         modal.style.display = 'none';
-      }
-   };
-
-   scissors.onclick = function() {
-      modal.style.display = 'none';
-   };
-
-   paper.onclick = function() {
-      modal.style.display = 'none';
-   };
-
-   rock.onclick = function() {
-      modal.style.display = 'none';
-   };
-}
-
-displayInputModal();
+rock.onclick = function() {
+   modal.style.display = 'none';
+};

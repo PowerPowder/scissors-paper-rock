@@ -8,6 +8,7 @@
    grid-template-columns: 1fr 1fr 1fr;
    grid-template-rows: 1fr 1fr 1fr;
    background-color: rgba(0, 0, 0, 0.4);
+   z-index: 1;
 }
 
 .modal-content {

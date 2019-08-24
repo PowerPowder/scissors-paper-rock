@@ -90,4 +90,9 @@ button:hover {
 
 #choices button i {
    font-size: 3em;
+   color: #383838;
+}
+
+#choices button:hover .flipPlayerAction {
+   color: #fff;
 }
